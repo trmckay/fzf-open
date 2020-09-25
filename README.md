@@ -44,17 +44,17 @@ An example configuration file is also included in `/usr/share/fzf-open/example_c
 
 **Configuration keys**:
 
-| KEY            | DEFUALT VALUE               |
-| -------------- | --------------------------- |
-| `OPENER`       | `$HOME/.config/lopen.sh` |
-| `TERMINAL`     | `urxvt`                     |
-| `STARTING_DIR` | `$HOME`                     |
+| KEY | DEFUALT VALUE |
+| --- | --- |
+| `OPENER` | `$HOME/.config/lopen.sh` |
+| `TERMINAL` | `urxvt` |
+| `STARTING_DIR` | `$HOME` |
 
-If you choose to keep, lopen.sh as the opener. You should customize it at `$HOME/.config/fzf-open/lopen.sh`, especially if the following
+If you choose to keep, `lopen.sh` as the opener. You should customize it at `$HOME/.config/fzf-open/lopen.sh`, especially if the following
 default applications do not look sane:
 
 | FILETYPE | APPLICATION |
-| ----- | ------- |
+| --- | --- |
 | Images | `feh` |
 | Videos | `mpv` |
 | Text | `vim` |
