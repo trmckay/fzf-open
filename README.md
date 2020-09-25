@@ -10,11 +10,20 @@ Use fzf to open files in appropriate applications (a la macOS Spotlight)
 ![demonstration of fzf-open](extra/demo.gif)
 
 ## Installation ##
+
+### Arch based ###
+
 For Arch based distros, `fzf-open` is [on the AUR](https://aur.archlinux.org/packages/fzf-open/).
 
 ```
 yay -S fzf-open
 ```
+
+### Other distros ###
+
+**Requirements**:
+- bash
+- fzf
 
 For other distros, installation is still simple:
 
@@ -52,3 +61,8 @@ default applications do not look sane:
 | PDF | `zathura` |
 | Web | `firefox` |
 | Terminal | `urxvt` |
+
+## Planned features ##
+- Scriptability so it can be used as a fuzzy opener anywhere
+- Flag to _not_ create a new host terminal when running
+- Flags to override other configuration keys
