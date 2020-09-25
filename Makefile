@@ -19,5 +19,5 @@ release:
 	sed -i 's/__PKGVER__/$(VERSION)/' PKGBUILD
 
 clean:
-	rm $(ARCHIVE)
-	rm PKGBUILD
+	rm -f $(ARCHIVE)
+	rm -f PKGBUILD
