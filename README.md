@@ -4,7 +4,7 @@ Use fzf to open files in appropriate applications (a la macOS Spotlight)
 ## Features ##
 - Customizable: supports configuration of terminals and openers
 - Designed to be launched easily from a hotkey
-- Comes with a simple opener: no `xdg-open` required
+- Comes with a simple opener: `xdg-open` **not** required
 - Fast: uses the fantastic [fzf](https://github.com/junegunn/fzf)
 
 ![demonstration of fzf-open](extra/demo.gif)
