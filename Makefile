@@ -1,5 +1,5 @@
 NAME = fzf-open
-VERSION = 0.2
+VERSION = 0.2.1
 ARCHIVE = $(NAME)-$(VERSION).tar.gz
 
 all:
