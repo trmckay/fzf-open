@@ -1,0 +1,23 @@
+# Maintainer: Trevor McKay <trs.mckay@gmail.com>
+# Contributor: Trevor McKay <trs.mckay@gmail.com>
+pkgname=fzf-open
+pkgrel=1
+pkgdesc="Use fzf to open files in appropriate applications (a la macOS Spotlight)"
+arch=('any')
+url="https://github.com/trmckay/fzf-open.git"
+license=('GNU General Public License v3.0')
+depends=('fzf bash')
+makedepends=('git')
+changelog=
+source=("https://github.com/trmckay/fzf-open/releases/download/v0.1/fzf-open-$pkgver.tar.gz")
+
+sha256sums=('__SHA256SUMS__')
+pkgver=__PKGVER__
+
+package() {
+    cd $srcdir
+    sudo cp ./fzf-open.sh /usr/bin/fzf-open
+    mkdir -p $HOME/.config/fzf-open
+    cp lopen.sh $HOME/.config/fzf-open/lopen.sh
+    cp example_config $HOME/.config/fzf-open/config
+}
