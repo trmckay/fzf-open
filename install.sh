@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo cp ./fzf-open.sh /usr/bin/fzf-open
-mkdir -p $HOME/.config/fzf-open
-cp lopen.sh $HOME/.config/fzf-open/lopen.sh
-cp example_config $HOME/.config/fzf-open/config
+install -Dm 755 fzf-open/fzf-open.sh /usr/bin/fzf-open
+install -d /usr/share/fzf-open/
+install -Dm 755 fzf-open/lopen.sh /usr/share/fzf-open
+install -Dm 644 extra/config /usr/share/fzf-open/example_config

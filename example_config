@@ -1,3 +1,0 @@
-OPENER=$HOME/.config/fzf-open/lopen.sh
-TERMINAL=urxvt
-STARTING_DIR=/home/trevor
