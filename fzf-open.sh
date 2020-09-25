@@ -9,7 +9,7 @@ STARTING_DIR="/"
 CONFIG_FILE=$HOME/.config/fzf-open/config
 . $CONFIG_FILE
 
-$TERMINAL --title "fzf-open-run" -e zsh -c 'cd $STARTING_DIR; fzf > /tmp/fzf-open'
+$TERMINAL --title "fzf-open-run" -e bash -c 'cd $STARTING_DIR; fzf > /tmp/fzf-open'
 
 if test -f "/tmp/fzf-open"; then
     FILE=$STARTING_DIR/$(cat /tmp/fzf-open)
