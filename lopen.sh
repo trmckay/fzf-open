@@ -4,49 +4,51 @@
 ################################ CUSTOM OPENER ###############################
 ##############################################################################
 
-TEXT_EDITOR="nvim_open"
-PDF_VIEWER="zathura"
-IMAGE_VIEWER="feh"
-VIDEO_PLAYER="mpv"
-SPREADSHEET_EDITOR="sc-im"
-WEB_BROWSER="firefox"
-TERMINAL="alacritty"
+FALLBACK_OPENER=xdg-open
+
+TEXT_EDITOR=nvim_open
+PDF_VIEWER=zathura
+IMAGE_VIEWER=feh
+VIDEO_PLAYER=mpv
+SPREADSHEET_EDITOR=sc-im
+WEB_BROWSER=firefox
+TERMINAL=urxvt
 
 # open
 function nvim_open() {
     export NVIM_FILE_TO_OPEN=$1
-    $TERMINAL -e zsh -c 'clear; nvim $NVIM_FILE_TO_OPEN'
+    $TERMINAL -e zsh -c 'nvim $NVIM_FILE_TO_OPEN'
 }
 
-FILE=$1
-EXTENSION=$(echo $FILE | sed 's/.*\.//')
-MIME=$(xdg-mime query filetype $FILE)
+EXTENSION=$(echo "$1" | sed 's/.*\.//')
+MIME=$(xdg-mime query filetype "$1")
 
 case "$EXTENSION" in
     pdf)
-        $PDF_VIEWER $FILE
+        $PDF_VIEWER "$1"
         exit;;
     png|jpg|jpeg|PNG|JPG|JPEG)
-        $IMAGE_VIEWER $FILE
+        $IMAGE_VIEWER "$1"
         exit;;
-    mov|mp4|mp3|mkv)
-        $VIDEO_PLAYER $FILE
+    flv|avi|mov|mp4|mp3|mkv)
+        $VIDEO_PLAYER "$1"
         exit;;
     csv|xlsv)
-        $SPREADSHEET_EDITOR $FILE
+        $SPREADSHEET_EDITOR "$1"
         exit;;
     htm|html)
-        $WEB_BROWSER $FILE
+        $WEB_BROWSER "$1"
         exit;;
 esac
 
 case "$MIME" in
     image/*)
-        $IMAGE_VIEWER $FILE
+        $IMAGE_VIEWER "$1"
         exit;;
     text/*)
-        $TEXT_EDITOR $FILE
+        $TEXT_EDITOR "$1"
         exit;;
-    *)
-        $FALLBACK_OPENER $FILE;;
 esac
+
+echo "Falling back to $FALLBACK_OPENER"
+$FALLBACK_OPENER "$1"
