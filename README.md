@@ -22,7 +22,7 @@ yay -S fzf-open
 ### Other distros ###
 
 **Requirements**:
-- bash
+- python
 - fzf
 
 For other distros, installation is still simple:
@@ -34,7 +34,7 @@ sudo ./install.sh
 cd ..
 rm -rf fzf-open
 ```
-Don't forget to configure! Make sure to change the default 
+Don't forget to configure! Make sure to change the default
 
 ## Configuration ##
 
@@ -42,13 +42,25 @@ Install and run `fzf-open` at least once for it to create config files.
 Configuration is located at `$HOME/.config/fzf-open/config`.
 An example configuration file is also included in `/usr/share/fzf-open/example_config`.
 
-**Configuration keys**:
+**Configuration keys** (absolute paths only, no environment variables):
 
 | KEY | DEFUALT VALUE |
 | --- | --- |
-| `OPENER` | `$HOME/.config/lopen.sh` |
-| `TERMINAL` | `urxvt` |
-| `STARTING_DIR` | `$HOME` |
+| `OPENER` | `~/.config/lopen.sh` |
+| `TERMINAL` | `xterm` |
+| `STARTING_DIR` | `~/` |
+| `WIN_TITLE` | `fzf-open-run` |
+| `WIN_TITLE_FLAG` | `--title` |
+| `SPAWN_TERM` | `False` |
+
+Most of these can be overwitten by flags:
+
+| FLAG | EFFECT |
+| --- | --- |
+| `-n` | Spawn a new terminal with `fzf-open` |
+| `-o "opener"` | Use this as the opener |
+| `-d "dir"` | Start in this directory |
+| `-t` "term" | Use this terminal program |
 
 If you choose to keep, `lopen.sh` as the opener. You should customize it at `$HOME/.config/fzf-open/lopen.sh`, especially if the following
 default applications do not look sane:
@@ -61,8 +73,3 @@ default applications do not look sane:
 | PDF | `zathura` |
 | Web | `firefox` |
 | Terminal | `urxvt` |
-
-## Planned features ##
-- Scriptability so it can be used as a fuzzy opener anywhere
-- Flag to _not_ create a new host terminal when running
-- Flags to override other configuration keys

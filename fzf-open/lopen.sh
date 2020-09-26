@@ -6,7 +6,7 @@
 
 FALLBACK_OPENER=xdg-open
 
-TEXT_EDITOR=nvim_open
+TEXT_EDITOR=vim_open
 PDF_VIEWER=zathura
 IMAGE_VIEWER=feh
 VIDEO_PLAYER=mpv
@@ -15,9 +15,9 @@ WEB_BROWSER=firefox
 TERMINAL=urxvt
 
 # open
-function nvim_open() {
-    export NVIM_FILE_TO_OPEN=$1
-    $TERMINAL -e zsh -c 'nvim $NVIM_FILE_TO_OPEN'
+function vim_open() {
+    export VIM_FILE_TO_OPEN=$1
+    $TERMINAL -e bash -c 'nvim $VIM_FILE_TO_OPEN'
 }
 
 EXTENSION=$(echo "$1" | sed 's/.*\.//')
