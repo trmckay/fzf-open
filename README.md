@@ -34,7 +34,7 @@ sudo ./install.sh
 cd ..
 rm -rf fzf-open
 ```
-Don't forget to configure! Make sure to change the default
+Don't forget to configure!
 
 ## Configuration ##
 
